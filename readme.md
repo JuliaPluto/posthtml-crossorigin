@@ -77,8 +77,12 @@ posthtml()
       value: (src, current_crossorigin_value, node) => {
         // Compute a new crossorigin value here, and return it.
         
-        // If you do not want to change the attribute, return current_crossorigin_value
-        src.includes("https://mycdn.com") ? "anonymous" : current_crossorigin_value
+        if(src.includes("https://mycdn.com")) {
+          return "anonymous"
+        } else {
+          // If you do not want to change the attribute, return current_crossorigin_value
+          return current_crossorigin_value
+        }
       }
     }))
     .process(html/*, options */)
