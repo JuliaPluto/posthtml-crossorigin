@@ -14,7 +14,9 @@ test('basic', t => {
 async function compare(t, name) {
   const source = readFileSync(path.join(fixtures, `${name}.html`), 'utf8');
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8');
-  const {html} = await posthtml([plugin()]).process(source);
+  const {html} = await posthtml([plugin({
+    value: (src, current, node) => current ?? 'helloo'
+  })]).process(source);
 
   t.deepEqual(html, expected);
 }
