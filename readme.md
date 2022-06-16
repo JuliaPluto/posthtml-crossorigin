@@ -30,7 +30,7 @@ After:
 Describe how big guys can install your plugin.
 
 ```bash
-npm i posthtml-crossorigin
+npm i @plutojl/posthtml-crossorigin
 ```
 
 ## Usage
